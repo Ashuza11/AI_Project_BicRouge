@@ -27,6 +27,7 @@ To run the app, you will need to have Flutter and Dart installed on your machine
 
 - Flutter SDK (>= 2.5.0)
 - Dart SDK
+- Java Development Kit (JDK)
 - Android Studio or Visual Studio Code
 
 ## Installation
