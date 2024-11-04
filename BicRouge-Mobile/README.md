@@ -35,3 +35,91 @@ To run the app, you will need to have Flutter and Dart installed on your machine
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Ashuza11/AI_Project_BicRouge
+
+2. Install dependencies
+
+flutter pub get
+
+
+3. Connect your device or start an emulator
+
+
+4. Run the app
+
+flutter run
+
+
+
+Usage
+
+Home Screen: Displays a list of captured documents. Tap the camera icon in the bottom navigation bar to access the camera and scan a new document.
+
+Scanning Page: Capture documents using the camera. After capturing, the document is saved and displayed in the main list.
+
+Document Options: Click on the more icon for additional options for each document.
+
+
+Permissions
+
+This app requires the following permissions to function correctly:
+
+Camera: To capture document images.
+
+Location: Required if you want location tagging (optional, based on app settings).
+
+
+Add the following permissions in AndroidManifest.xml:
+
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+Folder Structure
+
+Here’s an overview of the project structure:
+
+bicrouge/
+├── android/                 # Android native code
+├── assets/                  # Images and assets
+├── ios/                     # iOS native code
+├── lib/                     # Flutter application code
+│   ├── main.dart            # Main entry point of the app
+│   ├── pages/               # App screens (e.g., scanning page, document list)
+│   ├── widgets/             # Reusable widgets
+│   ├── utils/               # Utility functions and helpers
+└── pubspec.yaml             # Project configuration and dependencies
+
+Screenshots
+
+Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+
+
+2. Create a feature branch: git checkout -b feature-name.
+
+
+3. Commit your changes: git commit -m 'Add some feature'.
+
+
+4. Push to the branch: git push origin feature-name.
+
+
+5. Open a pull request.
+
+
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+
+Thanks to the Flutter community for providing such an amazing framework for cross-platform development.
+
+
+---
+
+Feel free to reach out if you encounter any issues or have suggestions for new features.
