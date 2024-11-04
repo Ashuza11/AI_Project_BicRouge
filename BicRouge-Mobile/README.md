@@ -11,6 +11,7 @@ A Flutter-based mobile application for scanning, capturing, and managing documen
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contact](#contact)
 
 ## Features
 
