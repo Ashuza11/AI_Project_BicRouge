@@ -8,7 +8,6 @@ A Flutter-based mobile application for scanning, capturing, and managing documen
 - [Installation](#installation)
 - [Usage](#usage)
 - [Permissions](#permissions)
-- [Folder Structure](#folder-structure)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
@@ -36,21 +35,21 @@ To run the app, you will need to have Flutter and Dart installed on your machine
    ```bash
    git clone https://github.com/Ashuza11/AI_Project_BicRouge
 
-2. Install dependencies
-
+2. **Install dependencies**
+```bash
 flutter pub get
 
 
-3. Connect your device or start an emulator
+3. **Connect your device or start an emulator**
 
 
-4. Run the app
-
+4. **Run the app**
+```bash
 flutter run
 
 
 
-Usage
+## Usage
 
 Home Screen: Displays a list of captured documents. Tap the camera icon in the bottom navigation bar to access the camera and scan a new document.
 
@@ -59,7 +58,7 @@ Scanning Page: Capture documents using the camera. After capturing, the document
 Document Options: Click on the more icon for additional options for each document.
 
 
-Permissions
+## Permissions
 
 This app requires the following permissions to function correctly:
 
@@ -74,24 +73,9 @@ Add the following permissions in AndroidManifest.xml:
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-Folder Structure
+## Screenshots
 
-Here’s an overview of the project structure:
-
-bicrouge/
-├── android/                 # Android native code
-├── assets/                  # Images and assets
-├── ios/                     # iOS native code
-├── lib/                     # Flutter application code
-│   ├── main.dart            # Main entry point of the app
-│   ├── pages/               # App screens (e.g., scanning page, document list)
-│   ├── widgets/             # Reusable widgets
-│   ├── utils/               # Utility functions and helpers
-└── pubspec.yaml             # Project configuration and dependencies
-
-Screenshots
-
-Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -111,11 +95,11 @@ Contributions are welcome! Please follow these steps:
 
 
 
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 
 Thanks to the Flutter community for providing such an amazing framework for cross-platform development.
 
