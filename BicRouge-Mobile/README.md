@@ -39,14 +39,12 @@ To run the app, you will need to have Flutter and Dart installed on your machine
    ```bash
    flutter pub get
 
-
 3. **Connect your device or start an emulator**
 
 
 4. **Run the app**
    ```bash
    flutter run
-
 
 
 ## Usage
