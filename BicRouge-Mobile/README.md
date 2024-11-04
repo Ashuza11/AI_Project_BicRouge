@@ -37,7 +37,7 @@ To run the app, you will need to have Flutter and Dart installed on your machine
 
 2. **Install dependencies**
 ```bash
-flutter pub get
+   flutter pub get
 
 
 3. **Connect your device or start an emulator**
@@ -45,7 +45,7 @@ flutter pub get
 
 4. **Run the app**
 ```bash
-flutter run
+   flutter run
 
 
 
