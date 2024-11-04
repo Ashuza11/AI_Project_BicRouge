@@ -36,7 +36,7 @@ To run the app, you will need to have Flutter and Dart installed on your machine
    git clone https://github.com/Ashuza11/AI_Project_BicRouge
 
 2. **Install dependencies**
-```bash
+   ```bash
    flutter pub get
 
 
@@ -44,7 +44,7 @@ To run the app, you will need to have Flutter and Dart installed on your machine
 
 
 4. **Run the app**
-```bash
+   ```bash
    flutter run
 
 
