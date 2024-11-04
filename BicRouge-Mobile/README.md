@@ -98,4 +98,6 @@ Thanks to the Flutter community for providing such an amazing framework for cros
 ## Contact
 
 Feel free to reach out if you encounter any issues or have suggestions for new features.
-Girish Sonune https://github.com/GirishSonune girish.sonune@gmail.com
+
+Girish Sonune :
+https://github.com/GirishSonune girish.sonune@gmail.com
