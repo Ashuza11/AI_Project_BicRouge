@@ -46,7 +46,6 @@ To run the app, you will need to have Flutter and Dart installed on your machine
    ```bash
    flutter run
 
-
 ## Usage
 
 Home Screen: Displays a list of captured documents. Tap the camera icon in the bottom navigation bar to access the camera and scan a new document.
