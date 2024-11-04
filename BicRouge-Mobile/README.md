@@ -93,11 +93,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Thanks to the Flutter community for providing such an amazing framework for cross-platform development.
 
+---
 
 ## Contact
 
-Girish Sonune @https://github.com/GirishSonune - girish.sonune@gmail.com
-
----
-
 Feel free to reach out if you encounter any issues or have suggestions for new features.
+Girish Sonune https://github.com/GirishSonune girish.sonune@gmail.com
