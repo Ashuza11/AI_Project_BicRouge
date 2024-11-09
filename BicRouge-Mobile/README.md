@@ -62,8 +62,6 @@ This app requires the following permissions to function correctly:
 
 Add the following permissions in AndroidManifest.xml:
 
-
-    ```
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -71,7 +69,6 @@ Add the following permissions in AndroidManifest.xml:
 ## Folder Structure
 Here’s an overview of the project structure:
 
-    ```plaintext
     bicrouge/
     ├── android/                 # Android native code
     ├── assets/                  # Images and assets
