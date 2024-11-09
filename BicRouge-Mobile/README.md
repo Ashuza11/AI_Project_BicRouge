@@ -1,6 +1,6 @@
-# Bicrouge 📄
+# Bicrouge📄 an LLM Assignment Grading and Feedback Generation System
 
-A Flutter-based mobile application for scanning, capturing, and managing documents directly from your device. The app leverages the camera to capture high-quality images, which are stored and displayed in an organized list for easy access and management.
+This project is a Large Language Learning Model (LLM) based assignment grading and feedback application designed to support teachers. It uses a combination of Python with FastAPI for the backend, Vite for the frontend, and LLAMA-2 and GPT-3.5 Turbo for the LLM. Additionally, it includes a mobile app built with Flutter.
 
 ## Table of Contents
 - [Features](#features)
