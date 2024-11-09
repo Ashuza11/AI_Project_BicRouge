@@ -12,6 +12,7 @@ A Flutter-based mobile application for scanning, capturing, and managing documen
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contact] (#contact)
 
 ## Features
 
@@ -62,7 +63,7 @@ This app requires the following permissions to function correctly:
 Add the following permissions in AndroidManifest.xml:
 
 
-    ```xml
+    ```
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -88,17 +89,11 @@ Home Screen	Scanning Screen	Document List
 ## Contributing
 Contributions are welcome! Please follow these steps:
 
-1. Fork the repository.
-2. Create a feature branch:
-    ```bash
-   git checkout -b feature-name.
-3. Commit your changes:
-    ```bash
-   git commit -m 'Add some feature'.
-4. Push to the branch:
-   ```bash
-   git push origin feature-name.
-5. Open a pull request.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -108,7 +103,11 @@ Thanks to the Flutter community for providing such an amazing framework for cros
 
 Feel free to reach out if you encounter any issues or have suggestions for new features.
 
-less
-Copy code
 
-Replace `https://github.com/yourusername/bicrouge.git` with the actual URL of your GitHub rep
+## Contact
+
+Girish Sonune - girish.sonune@gmail.com
+
+Let's Connect🔗 - https://www.linkedin.com/in/girish-sonune-7a7090255
+
+
