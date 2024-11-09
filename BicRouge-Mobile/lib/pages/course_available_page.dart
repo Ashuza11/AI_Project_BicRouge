@@ -4,6 +4,8 @@ import 'package:bicrouge/pages/scaned_document.dart';
 import 'package:flutter/material.dart';
 
 class CoursesPage extends StatelessWidget {
+  const CoursesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class CoursesPage extends StatelessWidget {
                       ),
                     );
                   },
-                  icon: Icon(Icons.add),
+                  icon: const Icon(Icons.add),
                 ),
                 IconButton(
                   onPressed: () {
@@ -34,7 +36,7 @@ class CoursesPage extends StatelessWidget {
                     ),
                   );
                 },
-                  icon: Icon(Icons.more_vert),
+                  icon: const Icon(Icons.more_vert),
                 ),
               ],
             ),
@@ -46,7 +48,7 @@ class CoursesPage extends StatelessWidget {
       
       drawer: AppDrawer(),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           // First Card
           _buildCourseCard(
@@ -55,7 +57,7 @@ class CoursesPage extends StatelessWidget {
             profileImage: 'assets/person1.png',
             backgroundColor: Colors.blueGrey[200]!,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           // Second Card
           _buildCourseCard(
             title: 'Human Interaction...',
@@ -84,12 +86,12 @@ class CoursesPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               color: backgroundColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(15),
                 topRight: Radius.circular(15),
               ),
             ),
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -100,7 +102,7 @@ class CoursesPage extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -108,10 +110,10 @@ class CoursesPage extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         author,
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: const TextStyle(fontSize: 14, color: Colors.white),
                       ),
                     ],
                   ),
@@ -121,7 +123,7 @@ class CoursesPage extends StatelessWidget {
                   onPressed: () {
                     // Handle more options
                   },
-                  icon: Icon(Icons.more_vert, color: Colors.white),
+                  icon: const Icon(Icons.more_vert, color: Colors.white),
                 ),
                 // Profile image
                 CircleAvatar(
@@ -140,7 +142,7 @@ class CoursesPage extends StatelessWidget {
                 onPressed: () {
                   // Handle clipboard logic here
                 },
-                icon: Icon(Icons.assignment, color: Colors.grey),
+                icon: const Icon(Icons.assignment, color: Colors.grey),
               ),
             ),
           ),

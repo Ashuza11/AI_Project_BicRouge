@@ -1,22 +1,22 @@
-import 'package:bicrouge/pages/course_available_page.dart';
-import 'package:bicrouge/pages/signup_page_student.dart';
 import 'package:bicrouge/auth.dart'; // Import AuthService
+import 'package:bicrouge/pages/course_available_page.dart';
+import 'package:bicrouge/pages/login_page_teacher.dart';
+import 'package:bicrouge/pages/signup_page_student.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class PasswordPage extends StatefulWidget {
-  final String email; // Add email field to receive from LoginPage
-
-  const PasswordPage({super.key, required this.email});
+class LoginPageStudent extends StatefulWidget {
+  const LoginPageStudent({super.key});
 
   @override
-  _PasswordPageState createState() => _PasswordPageState();
+  _LoginPageStudentState createState() => _LoginPageStudentState();
 }
 
-class _PasswordPageState extends State<PasswordPage> {
+class _LoginPageStudentState extends State<LoginPageStudent> {
   final AuthService _authService = AuthService(); // Initialize AuthService
   String selectedRole = 'Student';
   bool isPasswordVisible = false;
+  String email = '';
   String password = '';
   String errorMessage = '';
 
@@ -32,7 +32,7 @@ class _PasswordPageState extends State<PasswordPage> {
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Enter your password',
+              'Welcome back',
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
@@ -40,7 +40,7 @@ class _PasswordPageState extends State<PasswordPage> {
               'Join Bic Rouge for free as a',
               style: TextStyle(fontSize: 16),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
 
             // Student / Teacher Switch
             Row(
@@ -51,33 +51,25 @@ class _PasswordPageState extends State<PasswordPage> {
                 _buildRoleButton('Teacher'),
               ],
             ),
+            const SizedBox(height: 25),
+
+            // Email input
+            TextField(
+              onChanged: (value) => setState(() => email = value),
+              decoration: const InputDecoration(
+                labelText: 'Email address',
+                border: OutlineInputBorder(),
+              ),
+            ),
             const SizedBox(height: 20),
 
-            // Email display and edit button
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    widget.email, // Display the passed email
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context); // Navigate back to LoginPage for email edit
-                  },
-                  child: const Text('Edit', style: TextStyle(color: Colors.red)),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-
-            // Password input field
+            // Password input
             TextField(
               onChanged: (value) => setState(() => password = value),
+              // obscureText: true,
               obscureText: !isPasswordVisible,
               decoration: InputDecoration(
-                labelText: 'Password*',
+                labelText: 'Password',
                 border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
                   icon: Icon(
@@ -91,38 +83,24 @@ class _PasswordPageState extends State<PasswordPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-
-            // Forgot password link
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {
-                  // Add logic for password reset here
-                },
-                child: const Text(
-                  'Forgot your password?',
-                  style: TextStyle(color: Colors.red),
-                ),
-              ),
-            ),
             const SizedBox(height: 20),
 
-            // Continue button for password authentication
+            // Continue button for sign-in
             ElevatedButton(
               onPressed: () async {
-                User? user = await _authService.signInWithEmailPassword(widget.email, password);
+                User? user =
+                    await _authService.signInWithEmailPassword(email, password);
                 if (user != null) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CoursesPage(),
-                    ),
+                        builder: (context) => const CoursesPage(
+                            // email: '',
+                            )),
                   );
                 } else {
-                  setState(() {
-                    errorMessage = 'Incorrect password. Please try again.';
-                  });
+                  setState(() => errorMessage =
+                      'Sign-in failed. Please check your credentials.');
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -151,6 +129,30 @@ class _PasswordPageState extends State<PasswordPage> {
               },
               child: const Text("Don't have an account? Sign Up"),
             ),
+            const SizedBox(height: 20),
+
+            // OR divider
+            const Row(
+              children: [
+                Expanded(child: Divider()),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Text('OR'),
+                ),
+                Expanded(child: Divider()),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // Social login buttons
+            _buildSocialButton('Continue with Google', Colors.white,
+                'assets/logo_google.png', Colors.black),
+            const SizedBox(height: 10),
+            _buildSocialButton('Continue with Microsoft Account', Colors.white,
+                'assets/logo_microsoft.png', Colors.black),
+            const SizedBox(height: 10),
+            _buildSocialButton('Continue with Facebook', Colors.blue[800]!,
+                'assets/logo_facebook.png', Colors.white),
           ],
         ),
       ),
@@ -165,6 +167,13 @@ class _PasswordPageState extends State<PasswordPage> {
         setState(() {
           selectedRole = role;
         });
+
+        if (role == 'Teacher') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPageTeacher()),
+          );
+        }
       },
       style: ElevatedButton.styleFrom(
         foregroundColor: isSelected ? Colors.white : Colors.black,
@@ -176,6 +185,31 @@ class _PasswordPageState extends State<PasswordPage> {
         minimumSize: const Size(150, 50),
       ),
       child: Text(role),
+    );
+  }
+
+  // Helper method for social login buttons
+  Widget _buildSocialButton(
+      String text, Color bgColor, String iconPath, Color textColor) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        // Add social authentication logic here
+      },
+      icon: Image.asset(
+        iconPath,
+        height: 24,
+        width: 24,
+      ),
+      label: Text(
+        text,
+        style: TextStyle(color: textColor),
+      ),
+      style: ElevatedButton.styleFrom(
+        foregroundColor: textColor,
+        backgroundColor: bgColor,
+        minimumSize: const Size(double.infinity, 50),
+        side: BorderSide(color: Colors.grey[300]!),
+      ),
     );
   }
 }

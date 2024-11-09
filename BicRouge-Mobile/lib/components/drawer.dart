@@ -1,11 +1,12 @@
 import 'package:bicrouge/pages/about_us_page.dart';
 import 'package:bicrouge/pages/contact_us_page.dart';
-import 'package:bicrouge/pages/login_page.dart';
-import 'package:bicrouge/pages/signup_page_student.dart';
-import 'package:bicrouge/temp.dart';
+import 'package:bicrouge/pages/login_page_student.dart';
+import 'package:bicrouge/auth.dart'; // Import AuthService
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
+  const AppDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -15,15 +16,15 @@ class AppDrawer extends StatelessWidget {
           DrawerHeader(
             padding: EdgeInsets.zero,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Image.asset('assets/logo.png',
                       fit: BoxFit.contain, height: 50),
-                  SizedBox(height: 8),
-                  Text(
+                  const SizedBox(height: 8),
+                  const Text(
                     'Version 1.0',
                     style: TextStyle(
                       fontSize: 14,
@@ -35,48 +36,35 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-            onTap: () {
-              // Navigate to Home
-            },
+            leading: const Icon(Icons.home),
+            title: const Text('Home'),
+            onTap: () => Navigator.pop(context),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            leading: Icon(Icons.language),
-            title: Text('Lang'),
+            leading: const Icon(Icons.language),
+            title: const Text('Lang'),
             onTap: () {
               // Language selection action
             },
           ),
           ListTile(
-            leading: Icon(Icons.login),
-            title: Text('Login'),
+            leading: const Icon(Icons.person_remove),
+            title: const Text('Sign Out'),
             onTap: () {
+              AuthService().signOut();
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginPage(),
+                  builder: (context) => LoginPageStudent(),
                 ),
               );
             },
           ),
+          const Divider(),
           ListTile(
-            leading: Icon(Icons.person_add),
-            title: Text('Signup'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SignupPage(),
-                ),
-              );
-            },
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.contact_mail),
-            title: Text('Contact us'),
+            leading: const Icon(Icons.contact_mail),
+            title: const Text('Contact us'),
             onTap: () {
               Navigator.push(
                 context,
@@ -87,13 +75,13 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.info),
-            title: Text('About BicRouge'),
+            leading: const Icon(Icons.info),
+            title: const Text('About BicRouge'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AboutUsPage(),
+                  builder: (context) => const AboutUsPage(),
                 ),
               );
             },

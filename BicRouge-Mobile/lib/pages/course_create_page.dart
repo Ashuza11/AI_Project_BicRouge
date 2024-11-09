@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CourseCreatePage extends StatelessWidget {
+  const CourseCreatePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -10,15 +12,15 @@ class CourseCreatePage extends StatelessWidget {
           title: Image.asset('assets/logo.png', height: 40),
           actions: [
             IconButton(
-              icon: Icon(Icons.add),
+              icon: const Icon(Icons.add),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.more_vert),
+              icon: const Icon(Icons.more_vert),
               onPressed: () {},
             ),
           ],
-          bottom: TabBar(
+          bottom: const TabBar(
             labelColor: Colors.red,
             unselectedLabelColor: Colors.grey,
             indicatorColor: Colors.red,
@@ -35,35 +37,35 @@ class CourseCreatePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Card(
+              const Card(
                 child: ListTile(
                   title: Text('Human and Machine Interaction'),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Card(
                 child: ListTile(
-                  title: Text('course code'),
-                  subtitle: Text('aibrhgm'),
+                  title: const Text('course code'),
+                  subtitle: const Text('aibrhgm'),
                   trailing: IconButton(
-                    icon: Icon(Icons.copy),
+                    icon: const Icon(Icons.copy),
                     onPressed: () {},
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Card(
                 child: ListTile(
-                  title: Text('Future'),
-                  subtitle: Text('No current tasks'),
+                  title: const Text('Future'),
+                  subtitle: const Text('No current tasks'),
                   trailing: TextButton(
-                    child: Text('See all', style: TextStyle(color: Colors.red)),
+                    child: const Text('See all', style: TextStyle(color: Colors.red)),
                     onPressed: () {},
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-              Card(
+              const SizedBox(height: 16),
+              const Card(
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundImage:

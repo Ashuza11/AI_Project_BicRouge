@@ -1,7 +1,11 @@
-import 'package:bicrouge/pages/main_screen.dart';
+import 'package:bicrouge/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:bicrouge/pages/main_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure bindings are initialized
+  await Firebase.initializeApp(); // Initialize Firebase
   runApp(const MyApp());
 }
 
@@ -14,7 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BicRouge',
-      home: MainScreen(),
+      home: SplashScreen(),
+      // home: LoginPageStudent(),
     );
   }
 }

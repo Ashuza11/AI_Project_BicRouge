@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:bicrouge/auth.dart'; // Import AuthService
+import 'package:bicrouge/pages/signup_page_teacher.dart'; // Import the teacher signup page
 
 class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
+
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final AuthService _authService = AuthService(); // Initialize AuthService
   bool isStudent = true;
+  String email = '';
+  String password = '';
+  String name = '';
+  String postName = '';
+  String errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +26,15 @@ class _SignupPageState extends State<SignupPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
-            Text(
+            const Text(
               'Create an account',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
-            Text('Join Bic Rouge for free as a'),
-            SizedBox(height: 16),
+            const SizedBox(height: 8),
+            const Text('Join Bic Rouge for free as a'),
+            const SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
@@ -38,85 +47,104 @@ class _SignupPageState extends State<SignupPage> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: isStudent ? Colors.red : Colors.grey,
                     ),
-                    child: Text('Student'),
+                    child: const Text('Student'),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      setState(() {
-                        isStudent = false;
-                      });
+                      if (!isStudent) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupPageTeacher(),
+                          ),
+                        );
+                      } else {
+                        setState(() {
+                          isStudent = false;
+                        });
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: !isStudent ? Colors.red : Colors.grey,
                     ),
-                    child: Text('Teacher'),
+                    child: const Text('Teacher'),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              decoration: InputDecoration(
-                labelText: 'Address e-mail*',
+              onChanged: (value) => setState(() => email = value),
+              decoration: const InputDecoration(
+                labelText: 'Email address*',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              decoration: InputDecoration(
+              onChanged: (value) => setState(() => name = value),
+              decoration: const InputDecoration(
                 labelText: 'Name*',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              decoration: InputDecoration(
+              onChanged: (value) => setState(() => postName = value),
+              decoration: const InputDecoration(
                 labelText: 'Postname*',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              decoration: InputDecoration(
-                labelText: 'Last name',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
+              onChanged: (value) => setState(() => password = value),
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password*',
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.visibility),
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Passwords must be at least 8 characters long and include a combination of letters, numbers, and other special characters.',
               style: TextStyle(fontSize: 12),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {
-                // Handle continue action
+              onPressed: () async {
+                // Call the signup function from AuthService
+                var result = await _authService.signUpWithEmailPassword(email, password);
+                if (result != null) {
+                  Navigator.pop(context); // Navigate back or show a success message
+                } else {
+                  setState(() {
+                    errorMessage = 'Registration failed. Please try again.';
+                  });
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
-                minimumSize: Size(double.infinity, 50),
+                minimumSize: const Size(double.infinity, 50),
               ),
-              child: Text('Continue'),
+              child: const Text('Continue'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
+            if (errorMessage.isNotEmpty)
+              Text(
+                errorMessage,
+                style: const TextStyle(color: Colors.red),
+              ),
             Center(
               child: TextButton(
                 onPressed: () {
-                  // Handle login action
+                  Navigator.pop(context); // Navigate back to login
                 },
-                child: Text('Already have an account? Login'),
+                child: const Text('Already have an account? Login'),
               ),
             ),
           ],
