@@ -45,7 +45,7 @@ class AboutUsPage extends StatelessWidget {
             const SizedBox(height: 8.0),
             const Center(
               child: Text(
-                'Online Study App',
+                ' An LLM Assignment Grading and Feedback Generation System',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -64,7 +64,7 @@ class AboutUsPage extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             const Text(
-              'Our app is designed to make document scanning easy and accessible for everyone. With a user-friendly interface and advanced image processing, you can scan, save, and manage your documents effortlessly on the go.',
+              'This project is a Large Language Learning Model (LLM) based assignment grading and feedback application designed to support teachers. It uses a combination of Python with FastAPI for the backend, Vite for the frontend, and LLAMA-2 and GPT-3.5 Turbo for the LLM. Additionally, it includes a mobile app built with Flutter.',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
@@ -82,20 +82,37 @@ class AboutUsPage extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             const ListTile(
-              leading: Icon(Icons.camera_alt, color: Colors.black),
-              title: Text('Quick Document Scanning'),
+              leading: Icon(Icons.assignment_add, color: Colors.black),
+              title: Text('Assignment Scoring:'),
+              subtitle: Text(
+                'The application uses LLM to score assignments based on predefined criteria.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
             ),
             const ListTile(
-              leading: Icon(Icons.image, color: Colors.black),
-              title: Text('Gallery Import Support'),
+              leading: Icon(Icons.feedback_rounded, color: Colors.black),
+              title: Text('Feedback Generation'),
+              subtitle: Text(
+                'It also generates feedback for each assignment, providing students with valuable insights into their performance.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
             ),
             const ListTile(
-              leading: Icon(Icons.share, color: Colors.black),
-              title: Text('Easy Document Sharing'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.edit, color: Colors.black),
-              title: Text('Rename and Organize Documents'),
+              leading: Icon(Icons.support_agent_rounded, color: Colors.black),
+              title: Text('Teacher Support'),
+              subtitle: Text(
+                'The application is designed to reduce the workload of teachers by automating the scoring and feedback process.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
             ),
             const SizedBox(height: 24.0),
 
@@ -118,9 +135,12 @@ class AboutUsPage extends StatelessWidget {
             const SizedBox(height: 8.0),
             ListTile(
               leading: const Icon(Icons.email, color: Colors.black),
-              title: const Text('girish.sonune@gmail.com'),
-              onTap: () {
-                // Logic to send an email
+              title: const Text('Email'),
+              onTap: () async {
+                final Uri url = Uri.parse('girish.sonune@gmail.com');
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
               },
             ),
             const SizedBox(height: 8.0),
@@ -135,6 +155,10 @@ class AboutUsPage extends StatelessWidget {
                 }
               },
             ),
+            const SizedBox(
+              height: 100,
+            ),
+            Center(child: Text("Made By ❤️Girish")),
           ],
         ),
       ),
