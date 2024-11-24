@@ -67,7 +67,7 @@ class MainScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                child: const Text('Get started'),
+                child: const Text('Get started', style: TextStyle(color: Colors.white)),
               ),
             ),
           ],

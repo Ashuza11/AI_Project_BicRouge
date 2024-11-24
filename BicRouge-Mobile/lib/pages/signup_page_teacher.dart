@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:bicrouge/auth.dart'; // Import the AuthService
+import 'login_page_teacher.dart';
 import 'signup_page_student.dart';
 
 class SignupPageTeacher extends StatefulWidget {
@@ -14,6 +15,7 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
   bool isStudent = false;
   late String selectedInstitution;
   final AuthService _authService = AuthService();
+  String selectedRole = 'Teacher';
   String email = '';
   String password = '';
   String name = '';
@@ -32,6 +34,7 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('assets/logo.png', height: 40),
+        backgroundColor: Colors.grey[100],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -45,35 +48,11 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
             const Text('Join Bic Rouge for free as a'),
             const SizedBox(height: 16),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const SignupPage()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isStudent ? Colors.red : Colors.grey,
-                    ),
-                    child: const Text('Student'),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        isStudent = false;
-                      });
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isStudent ? Colors.grey : Colors.red,
-                    ),
-                    child: const Text('Teacher'),
-                  ),
-                ),
+                _buildRoleButton('Student'),
+                const SizedBox(width: 10),
+                _buildRoleButton('Teacher'),
               ],
             ),
             const SizedBox(height: 16),
@@ -148,12 +127,14 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
-                User? user = await _authService.signUpWithEmailPassword(email, password);
+                User? user =
+                    await _authService.signUpWithEmailPassword(email, password);
                 if (user != null) {
                   // Navigate to a success screen or the next step in onboarding
                 } else {
                   setState(() {
-                    errorMessage = 'Registration failed. Please check your details.';
+                    errorMessage =
+                        'Registration failed. Please check your details.';
                   });
                 }
               },
@@ -161,7 +142,10 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
                 backgroundColor: Colors.red,
                 minimumSize: const Size(double.infinity, 50),
               ),
-              child: const Text('Continue'),
+              child: const Text(
+                'Continue',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             const SizedBox(height: 10),
             if (errorMessage.isNotEmpty)
@@ -169,11 +153,14 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
                 errorMessage,
                 style: const TextStyle(color: Colors.red),
               ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             Center(
               child: TextButton(
                 onPressed: () {
-                  // Handle login navigation
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPageTeacher()),
+                  );
                 },
                 child: const Text('Already have an account? Login'),
               ),
@@ -181,6 +168,35 @@ class _SignupPageTeacherState extends State<SignupPageTeacher> {
           ],
         ),
       ),
+    );
+  }
+
+  // Helper method for role selection buttons
+  Widget _buildRoleButton(String role) {
+    bool isSelected = role == selectedRole;
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          selectedRole = role;
+        });
+
+        if (role == 'Student') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SignupPage()),
+          );
+        }
+      },
+      style: ElevatedButton.styleFrom(
+        foregroundColor: isSelected ? Colors.white : Colors.black,
+        backgroundColor: isSelected ? Colors.red : Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        side: const BorderSide(color: Colors.red),
+        minimumSize: const Size(150, 50),
+      ),
+      child: Text(role),
     );
   }
 }

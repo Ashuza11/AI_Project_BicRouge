@@ -132,8 +132,8 @@ class _ScanedDocumentState extends State<ScanedDocument> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
+        backgroundColor: Colors.grey[100],
+        // elevation: 1,
         title: _isSearching
             ? TextField(
                 onChanged: (query) {
@@ -179,6 +179,7 @@ class _ScanedDocumentState extends State<ScanedDocument> {
         },
       ),
       bottomNavigationBar: BottomAppBar(
+        color: Colors.grey[100],
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Row(

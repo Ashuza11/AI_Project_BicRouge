@@ -9,6 +9,7 @@ class CourseCreatePage extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.grey[100],
           title: Image.asset('assets/logo.png', height: 40),
           actions: [
             IconButton(
@@ -59,21 +60,21 @@ class CourseCreatePage extends StatelessWidget {
                   title: const Text('Future'),
                   subtitle: const Text('No current tasks'),
                   trailing: TextButton(
-                    child: const Text('See all', style: TextStyle(color: Colors.red)),
+                    child: const Text('See all',
+                        style: TextStyle(color: Colors.red)),
                     onPressed: () {},
                   ),
                 ),
               ),
               const SizedBox(height: 16),
-              const Card(
+              Card(
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundImage:
-                        NetworkImage('https://example.com/profile.jpg'),
+                    backgroundImage: AssetImage('assets/person3.png'),
                   ),
-                  title: Text('Announcement to students...'),
+                  title: const Text('Announcement to students...'),
                 ),
-              ),
+              )
             ],
           ),
         ),

@@ -9,8 +9,7 @@ class AboutUsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('About Us'),
-        backgroundColor: Colors.white,
-        elevation: 1,
+        backgroundColor: Colors.grey[100],
         iconTheme: const IconThemeData(color: Colors.black),
         titleTextStyle: const TextStyle(
           color: Colors.black,
@@ -30,18 +29,8 @@ class AboutUsPage extends StatelessWidget {
                 width: 100,
               ),
             ),
-            const SizedBox(height: 16.0),
 
             // App Name and Short Tagline
-            const Center(
-              child: Text(
-                'BicRouge',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             const SizedBox(height: 8.0),
             const Center(
               child: Text(
@@ -64,7 +53,7 @@ class AboutUsPage extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             const Text(
-              'This project is a Large Language Learning Model (LLM) based assignment grading and feedback application designed to support teachers. It uses a combination of Python with FastAPI for the backend, Vite for the frontend, and LLAMA-2 and GPT-3.5 Turbo for the LLM. Additionally, it includes a mobile app built with Flutter.',
+              '    This project is a Large Language Learning Model (LLM) based assignment grading and feedback application designed to support teachers. It uses a combination of Python with FastAPI for the backend, Vite for the frontend, and LLAMA-2 and GPT-3.5 Turbo for the LLM. Additionally, it includes a mobile app built with Flutter.',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
@@ -156,7 +145,7 @@ class AboutUsPage extends StatelessWidget {
               },
             ),
             const SizedBox(
-              height: 100,
+              height: 50,
             ),
             Center(child: Text("Made By ❤️Girish")),
           ],
