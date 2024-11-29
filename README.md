@@ -1,37 +1,46 @@
-# Bic Rouge an LLM Assignment Grading and Feedback Generation System
+# 📚 Bic Rouge an LLM Assignment Grading and Feedback Generation System
 
-This project is a Large Language Learning Model (LLM) based assignment grading and feedback application designed to support teachers. It uses a combination of Python with FastAPI for the backend, Vite for the frontend, and LLAMA-2 and GPT-3.5 Turbo for the LLM. Additionally, it includes a mobile app built with Flutter.
+## Project Overview
 
-## Tech Stack
+This project is a platform that leverages Large Language Models (LLMs) to automate assignment grading, generate personalized feedback, and assist teachers with assignment and course composition. It is specifically designed to support educators managing large class sizes and addressing resource constraints.
+
+The platform integrates:
+
+A Web Application: Built with Python (FastAPI) for the backend and React for the frontend.
+A Mobile Application: Developed using Flutter for an intuitive and user-friendly experience.
+Cutting-Edge Models: Powered by advanced LLMs like LLAMA and GPT-3.5 Turbo to ensure accuracy, scalability, and efficiency.
+By combining modern AI technologies with practical features, this project aims to streamline teaching processes and enhance the learning experience for students.
+
+## 🛠 Tech Stack
 
 - **Backend**: Python with FastAPI
 - **Frontend**: Javascript with React.js and Tailwind
 - **Mobile**: Flutter
 - **LLM**: GPT-3.5 Turbo and LLAMA-3 8B instruct models
 
-## Design
+## 🎨 Design
 
 ![Project Design](design_assets/home.png)
 
-## Architecture
+## 🏗 Architecture
 
 ![Project Design](design_assets/architecture.png)
 
-## Deployment
+## 🚀 Deployment
 
-The prototype will be deployed using platforms like Vercel or Netlify for the frontend and AWS S3 or Azure, leveraging Docker containers and CI/CD using GitHub Actions.
+The deployment will be executed on Azure, utilizing Azure Container Services and Azure OpenAI. The process will leverage Docker, CI/CD pipelines, and GitHub Actions to ensure seamless integration, scalability, and automation.
 
-## Features
+## ✨ Features
 
 - **Assignment Scoring**: The application uses LLM to score assignments based on predefined criteria.
 - **Feedback Generation**: It also generates feedback for each assignment, providing students with valuable insights into their performance.
 - **Teacher Support**: The application is designed to reduce the workload of teachers by automating the scoring and feedback process.
 
-## Getting Started
+## 🏁 Getting Started
 
 To get a local copy up and running, follow these steps:
 
-### Backend (FastAPI)
+### ⚙️ Backend (FastAPI)
 
 1. Clone the repo
 
@@ -81,6 +90,10 @@ To get a local copy up and running, follow these steps:
    ```sh
       SECRET_KEY=your_secret_key
       OPENAI_API_KEY=your_openai_api_key
+      GITHUB_API_KEY=your_github_api_key
+      AZURE_OPENAI_API_KEY=your_azure_openai_api_key
+      AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+      AZURE_OPENAI_DEPLOYMENT_NAME=your_azure_openai_deployment_name
    ```
 
 7. Run the FastAPI server
@@ -90,7 +103,7 @@ To get a local copy up and running, follow these steps:
 
    ```
 
-### Frontend (React with Vite and Tailwind)
+### 🌐 Frontend (React with Vite and Tailwind)
 
 1. Navigate to the frontend directory
 
@@ -113,7 +126,7 @@ To get a local copy up and running, follow these steps:
 
    ```
 
-### Mobile (Flutter)
+### 📱 Mobile (Flutter)
 
 1. Ensure you have Flutter installed. Follow the instructions [here](https://docs.flutter.dev/get-started/install) if you don't have it installed.
 
@@ -138,7 +151,15 @@ To get a local copy up and running, follow these steps:
 
    ```
 
-## Contributing
+## 📊 Presentation Deck
+
+[View the Presentation Deck](https://stdntpartners-my.sharepoint.com/:p:/g/personal/albin_muhigiriashuza_studentambassadors_com/EV3U2gl3aYlElpi0rbIh40QBwu50drY7gOIAnp9iI0RAbA?e=tWC9ua)
+
+## 🎥 Project Demo Video
+
+[View the Demo](https://youtu.be/2uEd4X6gMOw)
+
+## 🤝 Contributing
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -146,10 +167,10 @@ To get a local copy up and running, follow these steps:
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## 📜 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## Contact
+## 📧 Contact
 
 Muhigiri Ashuza @Team-maarifa - ashuzamh@gmail.com

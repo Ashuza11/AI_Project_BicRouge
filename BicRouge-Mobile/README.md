@@ -1,8 +1,9 @@
 # Bicrouge📄 an LLM Assignment Grading and Feedback Generation System
 
-This project is a Large Language Learning Model (LLM) based assignment grading and feedback application designed to support teachers. It uses a combination of Python with FastAPI for the backend, Vite for the frontend, and LLAMA-2 and GPT-3.5 Turbo for the LLM. Additionally, it includes a mobile app built with Flutter.
+This is the mobile version of BicRouge, designed to empower teachers in regions without access to computers. It enables them to easily grade exam papers by simply scanning them with their mobile devices.
 
 ## Table of Contents
+
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
@@ -34,19 +35,26 @@ To run the app, you will need to have Flutter and Dart installed on your machine
 ## Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/bicrouge.git
    cd bicrouge
 
+   ```
+
 2. **Install dependencies**
+
    ```bash
    flutter pub get
+
+   ```
 
 3. **Connect your device or start an emulator**
 
 4. **Run the app**
    ```bash
    flutter run
+   ```
 
 ## Usage
 
@@ -55,6 +63,7 @@ To run the app, you will need to have Flutter and Dart installed on your machine
 - **Document Options:** Click on the more icon for additional options for each document.
 
 ## Permissions
+
 This app requires the following permissions to function correctly:
 
 - **Camera:** To capture document images.
@@ -67,6 +76,7 @@ Add the following permissions in AndroidManifest.xml:
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 ## Folder Structure
+
 Here’s an overview of the project structure:
 
     bicrouge/
@@ -79,11 +89,13 @@ Here’s an overview of the project structure:
     │   ├── widgets/             # Reusable widgets
     │   ├── utils/               # Utility functions and helpers
     └── pubspec.yaml             # Project configuration and dependencies
-    
+
 ## Screenshots
-Home Screen	Scanning Screen	Document List
+
+Home Screen Scanning Screen Document List
 
 ## Contributing
+
 Contributions are welcome! Please follow these steps:
 
 1. Fork the Project
@@ -91,20 +103,3 @@ Contributions are welcome! Please follow these steps:
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Acknowledgments
-Thanks to the Flutter community for providing such an amazing framework for cross-platform development.
-
-Feel free to reach out if you encounter any issues or have suggestions for new features.
-
-
-## Contact
-
-Girish Sonune - girish.sonune@gmail.com
-
-Let's Connect🔗 - https://www.linkedin.com/in/girish-sonune-7a7090255
-
-
