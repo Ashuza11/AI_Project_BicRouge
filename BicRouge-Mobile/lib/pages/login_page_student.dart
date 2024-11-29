@@ -25,6 +25,7 @@ class _LoginPageStudentState extends State<LoginPageStudent> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('assets/logo.png', height: 40),
+        backgroundColor: Colors.grey[100],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -107,7 +108,8 @@ class _LoginPageStudentState extends State<LoginPageStudent> {
                 backgroundColor: Colors.red,
                 minimumSize: const Size(double.infinity, 50),
               ),
-              child: const Text('Continue', style: TextStyle(fontSize: 16)),
+              child: const Text('Continue',
+                  style: TextStyle(fontSize: 16, color: Colors.white)),
             ),
             const SizedBox(height: 10),
 
@@ -145,14 +147,17 @@ class _LoginPageStudentState extends State<LoginPageStudent> {
             const SizedBox(height: 20),
 
             // Social login buttons
+            _buildSocialButton('Continue with Microsoft', Colors.white,
+                'assets/logo_microsoft.png', Colors.black),
+            const SizedBox(height: 10),
             _buildSocialButton('Continue with Google', Colors.white,
                 'assets/logo_google.png', Colors.black),
             const SizedBox(height: 10),
-            _buildSocialButton('Continue with Microsoft Account', Colors.white,
-                'assets/logo_microsoft.png', Colors.black),
-            const SizedBox(height: 10),
             _buildSocialButton('Continue with Facebook', Colors.blue[800]!,
                 'assets/logo_facebook.png', Colors.white),
+
+            // _buildSocialButton('Continue with Facebook', Colors.white,
+            //     'assets/logo_facebook.png', Colors.black),
           ],
         ),
       ),

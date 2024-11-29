@@ -1,3 +1,4 @@
+import 'package:bicrouge/pages/login_page_student.dart';
 import 'package:flutter/material.dart';
 import 'package:bicrouge/auth.dart'; // Import AuthService
 import 'package:bicrouge/pages/signup_page_teacher.dart'; // Import the teacher signup page
@@ -11,6 +12,7 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   final AuthService _authService = AuthService(); // Initialize AuthService
+  String selectedRole = 'Student';
   bool isStudent = true;
   String email = '';
   String password = '';
@@ -23,6 +25,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('assets/logo.png', height: 40),
+        backgroundColor: Colors.grey[100],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,48 +37,16 @@ class _SignupPageState extends State<SignupPage> {
             ),
             const SizedBox(height: 8),
             const Text('Join Bic Rouge for free as a'),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        isStudent = true;
-                      });
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isStudent ? Colors.red : Colors.grey,
-                    ),
-                    child: const Text('Student'),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (!isStudent) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignupPageTeacher(),
-                          ),
-                        );
-                      } else {
-                        setState(() {
-                          isStudent = false;
-                        });
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: !isStudent ? Colors.red : Colors.grey,
-                    ),
-                    child: const Text('Teacher'),
-                  ),
-                ),
+                _buildRoleButton('Student'),
+                const SizedBox(width: 10),
+                _buildRoleButton('Teacher'),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 25),
             TextField(
               onChanged: (value) => setState(() => email = value),
               decoration: const InputDecoration(
@@ -114,13 +85,15 @@ class _SignupPageState extends State<SignupPage> {
               'Passwords must be at least 8 characters long and include a combination of letters, numbers, and other special characters.',
               style: TextStyle(fontSize: 12),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 25),
             ElevatedButton(
               onPressed: () async {
                 // Call the signup function from AuthService
-                var result = await _authService.signUpWithEmailPassword(email, password);
+                var result =
+                    await _authService.signUpWithEmailPassword(email, password);
                 if (result != null) {
-                  Navigator.pop(context); // Navigate back or show a success message
+                  Navigator.pop(
+                      context); // Navigate back or show a success message
                 } else {
                   setState(() {
                     errorMessage = 'Registration failed. Please try again.';
@@ -131,7 +104,10 @@ class _SignupPageState extends State<SignupPage> {
                 backgroundColor: Colors.red,
                 minimumSize: const Size(double.infinity, 50),
               ),
-              child: const Text('Continue'),
+              child: const Text(
+                'Continue',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             const SizedBox(height: 16),
             if (errorMessage.isNotEmpty)
@@ -142,7 +118,11 @@ class _SignupPageState extends State<SignupPage> {
             Center(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pop(context); // Navigate back to login
+                  // Navigator.pop(context); // Navigate back to login
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPageStudent()),
+                  );
                 },
                 child: const Text('Already have an account? Login'),
               ),
@@ -150,6 +130,35 @@ class _SignupPageState extends State<SignupPage> {
           ],
         ),
       ),
+    );
+  }
+
+  // Helper method for role selection buttons
+  Widget _buildRoleButton(String role) {
+    bool isSelected = role == selectedRole;
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          selectedRole = role;
+        });
+
+        if (role == 'Teacher') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SignupPageTeacher()),
+          );
+        }
+      },
+      style: ElevatedButton.styleFrom(
+        foregroundColor: isSelected ? Colors.white : Colors.black,
+        backgroundColor: isSelected ? Colors.red : Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        side: const BorderSide(color: Colors.red),
+        minimumSize: const Size(150, 50),
+      ),
+      child: Text(role),
     );
   }
 }

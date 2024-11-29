@@ -1,6 +1,6 @@
-import 'package:bicrouge/pages/login_page_student.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'pages/main_screen.dart';
 // import 'package:splash_screen/main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const LoginPageStudent()));
+          MaterialPageRoute(builder: (_) => const MainScreen()));
     });
   }
 
@@ -33,16 +33,10 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: Center(
-        child: Container(
-          child: Image.asset(
-            'assets/logo.png',
-            height: 200,
-            width: 200,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(100),
-          ),
+        child: Image.asset(
+          'assets/img.png',
+          height: 300,
+          width: 300,
         ),
       ),
     );

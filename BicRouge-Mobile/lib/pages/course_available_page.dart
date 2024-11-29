@@ -29,23 +29,22 @@ class CoursesPage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ScanedDocument(),
-                    ),
-                  );
-                },
-                  icon: const Icon(Icons.more_vert),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ScanedDocument(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.document_scanner_rounded),
                 ),
               ],
             ),
           ],
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey[100],
         elevation: 0,
       ),
-      
       drawer: AppDrawer(),
       body: ListView(
         padding: const EdgeInsets.all(16),
@@ -113,7 +112,8 @@ class CoursesPage extends StatelessWidget {
                       const SizedBox(height: 5),
                       Text(
                         author,
-                        style: const TextStyle(fontSize: 14, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.white),
                       ),
                     ],
                   ),
