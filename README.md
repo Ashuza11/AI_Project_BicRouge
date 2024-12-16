@@ -151,10 +151,6 @@ To get a local copy up and running, follow these steps:
 
    ```
 
-## 📊 Presentation Deck
-
-[View the Presentation Deck](https://stdntpartners-my.sharepoint.com/:p:/g/personal/albin_muhigiriashuza_studentambassadors_com/EV3U2gl3aYlElpi0rbIh40QBwu50drY7gOIAnp9iI0RAbA?e=tWC9ua)
-
 ## 🎥 Project Demo Video
 
 [View the Demo](https://youtu.be/2uEd4X6gMOw)
